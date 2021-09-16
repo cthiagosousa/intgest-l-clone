@@ -14,11 +14,11 @@ class CustomBottomNavigationBarWidget extends StatelessWidget {
     final ThemeData theme = Theme.of(context);
 
     return BottomNavigationBar(
-      currentIndex: currentPage,
+      currentIndex: this.currentPage,
       backgroundColor: theme.primaryColor,
       fixedColor: Colors.white,
       unselectedItemColor: theme.accentColor,
-      onTap: setCurrentPage,
+      onTap: this.setCurrentPage,
       elevation: 0,
       items: [
         BottomNavigationBarItem(

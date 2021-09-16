@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class NewsScreen extends StatelessWidget {
+class NewsTabScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Center(

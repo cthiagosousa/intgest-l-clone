@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:intgest_legislativo/utils/routes.dart';
 import 'package:intgest_legislativo/screens/home_screen.dart';
+import 'package:intgest_legislativo/screens/parlamentary_list_screen.dart';
 
 void main() {
   runApp(App());
@@ -19,7 +21,6 @@ class App extends StatelessWidget {
         scaffoldBackgroundColor: Color(0XFFf2f2f2),
         appBarTheme: AppBarTheme(
           backgroundColor: Color(0XFFf2f2f2),
-          //backgroundColor: Color(0XFFc7e6ff),
         ),
         textTheme: TextTheme(
           headline1: GoogleFonts.poppins(
@@ -30,6 +31,10 @@ class App extends StatelessWidget {
             fontSize: 18,
             color: Colors.white,
           ),
+          headline3: GoogleFonts.poppins(
+            fontSize: 16,
+            color: Colors.white,
+          ),
           headline6: GoogleFonts.poppins(
             fontSize: 15,
             color: Colors.blue[900],
@@ -38,13 +43,20 @@ class App extends StatelessWidget {
             fontSize: 13,
             color: Colors.black87,
           ),
+          bodyText2: GoogleFonts.poppins(
+            fontSize: 13,
+            color: Colors.blue[900],
+          ),
         ),
         primaryIconTheme: IconThemeData(
           color: Colors.blue[900],
           size: 25,
         ),
       ),
-      home: HomeScreen(),
+      routes: {
+        Routes.HOME: (_) => HomeScreen(),
+        Routes.PARLIAMENTARIANS: (_) => ParliamentaryListScreen(),
+      },
     );
   }
 }

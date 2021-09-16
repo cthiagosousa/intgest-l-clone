@@ -1,29 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:intgest_legislativo/screens/option_list_tabscreen.dart';
 import 'package:intgest_legislativo/components/appbar_bottom_widget.dart';
-import 'package:intgest_legislativo/components/custom_bottom_navigation_bar_widget.dart';
-import 'package:intgest_legislativo/screens/notifications_tabscreen.dart';
-import 'package:intgest_legislativo/screens/news_tabscreen.dart';
+import 'package:intgest_legislativo/components/parlamentary_item_widget.dart';
 
-class HomeScreen extends StatefulWidget {
-  @override
-  _HomeScreenState createState() => _HomeScreenState();
-}
-
-class _HomeScreenState extends State<HomeScreen> {
-  int _currentPage = 1;
-
-  final List<Widget> _screens = [
-    NotificationsTabScreen(),
-    OptionListTabScreen(),
-    NewsTabScreen(),
-  ];
-
-  void setCurrentPage(int currentIndex) {
-    setState(() {
-      _currentPage = currentIndex;
-    });
-  }
+class ParliamentaryListScreen extends StatelessWidget {
+  const ParliamentaryListScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -56,7 +36,7 @@ class _HomeScreenState extends State<HomeScreen> {
           child: AppBarBottomWidget(
             title: "Piquet Carneiro",
             subtitle1: "Câmara Municipal",
-            subtitle2: "2021 - 2024",
+            subtitle2: "Parlamentares",
             size: 130,
             imagePath: "assets/images/logo2.png",
             backgroundImagePath:
@@ -64,14 +44,20 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
         ),
       ),
-      drawer: Drawer(),
-      bottomNavigationBar: CustomBottomNavigationBarWidget(
-        currentPage: _currentPage,
-        setCurrentPage: setCurrentPage,
-      ),
-      body: SingleChildScrollView(
-        padding: EdgeInsets.all(10),
-        child: _screens[_currentPage],
+      body: Padding(
+        padding: const EdgeInsets.all(10),
+        child: ListView(
+          children: [
+            ParlamentaryItemWidget(
+              name: "ANTONIO LEANDRO DE MEDEIROS",
+              email: "antonioleandro@camara.com",
+              phoneNumber: "(88) 3516-1699",
+              politicalParty: "PDT - PARTIDO DEMOCRÁTICO",
+              imagePath:
+                  "https://intellgest-sigl-media.s3.amazonaws.com/media/sigg/public/parlamentar/14/xandoca.ofc.jpg.150x190_q85_crop.jpg",
+            ),
+          ],
+        ),
       ),
     );
   }
