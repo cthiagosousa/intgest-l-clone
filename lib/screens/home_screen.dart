@@ -22,7 +22,7 @@ class _HomeScreenState extends State<HomeScreen> {
     NewsTabScreen(),
   ];
 
-  void setCurrentPage(int currentIndex) {
+  void _setCurrentPage(int currentIndex) {
     setState(() {
       _currentPage = currentIndex;
     });
@@ -41,7 +41,7 @@ class _HomeScreenState extends State<HomeScreen> {
       drawer: Drawer(),
       bottomNavigationBar: CustomBottomNavigationBarWidget(
         currentPage: _currentPage,
-        setCurrentPage: setCurrentPage,
+        setCurrentPage: _setCurrentPage,
       ),
       body: SingleChildScrollView(
         padding: EdgeInsets.all(10),
