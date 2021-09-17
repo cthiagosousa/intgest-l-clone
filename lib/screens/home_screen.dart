@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:get_it/get_it.dart';
+import 'package:intgest_legislativo/stores/country_store.dart';
 import 'package:intgest_legislativo/screens/option_list_tabscreen.dart';
-import 'package:intgest_legislativo/components/appbar_bottom_widget.dart';
-import 'package:intgest_legislativo/components/custom_bottom_navigation_bar_widget.dart';
 import 'package:intgest_legislativo/screens/notifications_tabscreen.dart';
 import 'package:intgest_legislativo/screens/news_tabscreen.dart';
+import 'package:intgest_legislativo/components/custom_bottom_navigation_bar_widget.dart';
+import 'package:intgest_legislativo/components/app_bar_widget.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -11,6 +13,7 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  final CountryStore _countryStore = GetIt.I.get<CountryStore>();
   int _currentPage = 1;
 
   final List<Widget> _screens = [
@@ -27,42 +30,13 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final ThemeData theme = Theme.of(context);
-
     return Scaffold(
-      appBar: AppBar(
-        centerTitle: true,
-        elevation: 0,
-        toolbarHeight: 180,
-        title: Image.asset(
-          "assets/images/logo.png",
-          fit: BoxFit.cover,
-          width: 150,
-        ),
-        actions: [
-          IconButton(
-            icon: Icon(
-              Icons.help,
-              color: theme.primaryColor,
-              size: 25,
-            ),
-            splashRadius: 23,
-            splashColor: theme.accentColor,
-            onPressed: () {},
-          )
-        ],
-        bottom: PreferredSize(
-          preferredSize: Size.fromHeight(130),
-          child: AppBarBottomWidget(
-            title: "Piquet Carneiro",
-            subtitle1: "Câmara Municipal",
-            subtitle2: "2021 - 2024",
-            size: 130,
-            imagePath: "assets/images/logo2.png",
-            backgroundImagePath:
-                "http://revistacentral.com.br/wp-content/uploads/2020/07/Piquet-Carneiro-768x402.jpg",
-          ),
-        ),
+      appBar: AppBarWidget(
+        title: _countryStore.country.name,
+        subtitle1: "Câmara Municipal",
+        subtitle2: _countryStore.country.legislation,
+        imagePath: _countryStore.country.imagePath,
+        backgroundImagePath: _countryStore.country.backgroundPath,
       ),
       drawer: Drawer(),
       bottomNavigationBar: CustomBottomNavigationBarWidget(

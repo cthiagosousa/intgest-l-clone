@@ -13,27 +13,35 @@ class CustomBottomNavigationBarWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     final ThemeData theme = Theme.of(context);
 
-    return BottomNavigationBar(
-      currentIndex: this.currentPage,
-      backgroundColor: theme.primaryColor,
-      fixedColor: Colors.white,
-      unselectedItemColor: theme.accentColor,
-      onTap: this.setCurrentPage,
-      elevation: 0,
-      items: [
-        BottomNavigationBarItem(
-          label: "Notificações",
-          icon: Icon(Icons.notifications),
-        ),
-        BottomNavigationBarItem(
-          label: "Início",
-          icon: Icon(Icons.home_filled),
-        ),
-        BottomNavigationBarItem(
-          label: "Notícias",
-          icon: Icon(Icons.new_releases),
-        ),
-      ],
+    return SizedBox(
+      child: BottomNavigationBar(
+        currentIndex: this.currentPage,
+        iconSize: 25,
+        selectedFontSize: 15,
+        unselectedFontSize: 12,
+        backgroundColor: theme.backgroundColor,
+        unselectedItemColor: theme.primaryColor,
+        selectedItemColor: theme.primaryColor,
+        onTap: this.setCurrentPage,
+        elevation: 0,
+        items: [
+          BottomNavigationBarItem(
+            label: "Notificações",
+            icon: Icon(Icons.notifications_outlined),
+            activeIcon: Icon(Icons.notifications),
+          ),
+          BottomNavigationBarItem(
+            label: "Início",
+            icon: Icon(Icons.home_outlined),
+            activeIcon: Icon(Icons.home),
+          ),
+          BottomNavigationBarItem(
+            label: "Notícias",
+            icon: Icon(Icons.new_releases_outlined),
+            activeIcon: Icon(Icons.new_releases),
+          ),
+        ],
+      ),
     );
   }
 }

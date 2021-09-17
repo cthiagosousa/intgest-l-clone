@@ -39,31 +39,42 @@ class AppBarBottomWidget extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          CircleAvatar(
-            radius: 35,
-            backgroundImage: AssetImage(this.imagePath),
+          Flexible(
+            flex: 1,
+            child: CircleAvatar(
+              radius: 35,
+              backgroundImage: NetworkImage(this.imagePath),
+            ),
           ),
           SizedBox(width: 30),
-          Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Text(
-                this.subtitle1,
-                style: theme.textTheme.headline2,
-              ),
-              Text(
-                this.title,
-                style: theme.textTheme.headline1!.copyWith(
-                  fontWeight: FontWeight.bold,
+          Flexible(
+            flex: 2,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                FittedBox(
+                  child: Text(
+                    this.subtitle1,
+                    style: theme.textTheme.headline2!,
+                  ),
                 ),
-              ),
-              if (this.subtitle2 != null)
                 Text(
-                  this.subtitle2!,
-                  style: theme.textTheme.headline3,
-                )
-            ],
+                  this.title,
+                  maxLines: 2,
+                  overflow: TextOverflow.clip,
+                  style: theme.textTheme.headline1!.copyWith(
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                if (this.subtitle2 != null)
+                  Text(
+                    this.subtitle2!,
+                    overflow: TextOverflow.ellipsis,
+                    style: theme.textTheme.headline3,
+                  )
+              ],
+            ),
           )
         ],
       ),
