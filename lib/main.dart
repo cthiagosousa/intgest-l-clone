@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:intgest_legislativo/stores/country_store.dart';
 import 'package:intgest_legislativo/utils/routes.dart';
+import 'package:intgest_legislativo/screens/login_screen.dart';
+import 'package:intgest_legislativo/stores/country_store.dart';
 import 'package:intgest_legislativo/screens/home_screen.dart';
 import 'package:intgest_legislativo/screens/parliamentary_list_screen.dart';
 import 'package:intgest_legislativo/screens/parliamentary_screen.dart';
@@ -62,6 +63,7 @@ class App extends StatelessWidget {
         Routes.HOME: (_) => HomeScreen(),
         Routes.PARLIAMENTARIANS: (_) => ParliamentaryListScreen(),
         Routes.PARLIAMENTARY: (_) => ParliamentaryScreen(),
+        Routes.LOGIN: (_) => LoginScreen(),
       },
     );
   }

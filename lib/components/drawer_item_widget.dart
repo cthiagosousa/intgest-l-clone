@@ -3,10 +3,12 @@ import 'package:flutter/material.dart';
 class DrawerItemWidget extends StatelessWidget {
   final String text;
   final IconData icon;
+  final void Function() onTap;
 
   const DrawerItemWidget({
     required this.text,
     required this.icon,
+    required this.onTap,
   });
 
   @override
@@ -14,6 +16,7 @@ class DrawerItemWidget extends StatelessWidget {
     final ThemeData theme = Theme.of(context);
 
     return ListTile(
+      onTap: this.onTap,
       leading: Icon(
         this.icon,
         color: theme.primaryIconTheme.color,
