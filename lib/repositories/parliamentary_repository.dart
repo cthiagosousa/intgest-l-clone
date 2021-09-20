@@ -4,8 +4,8 @@ import 'package:intgest_legislativo/models/parliamentary.dart';
 class ParliamentaryRepository {
   final Dio _dio = Dio(BaseOptions(
     baseUrl: "https://camaramodelo.intgest.com.br/api",
-    /* connectTimeout: 5000,
-    receiveTimeout: 3000, */
+    connectTimeout: 10000,
+    receiveTimeout: 3000,
   ));
 
   Future<List<Parliamentary>> get() async {

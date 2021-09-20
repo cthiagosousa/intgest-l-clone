@@ -57,6 +57,7 @@ class App extends StatelessWidget {
           size: 25,
         ),
       ),
+      initialRoute: '/',
       routes: {
         Routes.HOME: (_) => HomeScreen(),
         Routes.PARLIAMENTARIANS: (_) => ParliamentaryListScreen(),
