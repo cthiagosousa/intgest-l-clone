@@ -70,7 +70,9 @@ class ParliamentaryItemWidget extends StatelessWidget {
                           SizedBox(width: 5),
                           Expanded(
                             child: Text(
-                              this.parliamentary.email,
+                              this.parliamentary.email.trim().isEmpty
+                                  ? "Email não informado."
+                                  : this.parliamentary.email,
                               overflow: TextOverflow.ellipsis,
                               style: theme.textTheme.bodyText1,
                             ),

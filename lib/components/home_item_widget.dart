@@ -28,7 +28,7 @@ class _HomeItemWidgetState extends State<HomeItemWidget> {
 
     return AnimatedContainer(
       duration: Duration(milliseconds: 300),
-      height: isExpanded ? 180 : 80,
+      height: isExpanded ? 200 : 90,
       curve: Curves.fastOutSlowIn,
       child: Container(
         width: double.infinity,
