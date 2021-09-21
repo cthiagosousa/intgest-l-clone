@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
-import 'package:intgest_legislativo/components/drawer_item_widget.dart';
 import 'package:intgest_legislativo/stores/country_store.dart';
 import 'package:intgest_legislativo/utils/routes.dart';
+import 'package:intgest_legislativo/components/drawer_item_widget.dart';
 
 class CustomDrawerWidget extends StatelessWidget {
   final CountryStore _countryStore = GetIt.I.get<CountryStore>();
@@ -42,7 +42,7 @@ class CustomDrawerWidget extends StatelessWidget {
           DrawerItemWidget(
             text: "Configurações",
             icon: Icons.settings,
-            onTap: () {},
+            onTap: () => Navigator.pushNamed(context, Routes.SETTINGS),
           ),
           DrawerItemWidget(
             text: "Login",
