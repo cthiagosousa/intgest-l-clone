@@ -9,6 +9,21 @@ part of 'settings_store.dart';
 // ignore_for_file: non_constant_identifier_names, unnecessary_brace_in_string_interps, unnecessary_lambdas, prefer_expression_function_bodies, lines_longer_than_80_chars, avoid_as, avoid_annotating_with_dynamic
 
 mixin _$SettingsStore on _SettingsStore, Store {
+  final _$isDarkModeAtom = Atom(name: '_SettingsStore.isDarkMode');
+
+  @override
+  bool get isDarkMode {
+    _$isDarkModeAtom.reportRead();
+    return super.isDarkMode;
+  }
+
+  @override
+  set isDarkMode(bool value) {
+    _$isDarkModeAtom.reportWrite(value, super.isDarkMode, () {
+      super.isDarkMode = value;
+    });
+  }
+
   final _$cityCouncilNotificationsAtom =
       Atom(name: '_SettingsStore.cityCouncilNotifications');
 
@@ -43,63 +58,38 @@ mixin _$SettingsStore on _SettingsStore, Store {
     });
   }
 
-  final _$isDarkModeAtom = Atom(name: '_SettingsStore.isDarkMode');
+  final _$changeDarkModeAsyncAction =
+      AsyncAction('_SettingsStore.changeDarkMode');
 
   @override
-  bool get isDarkMode {
-    _$isDarkModeAtom.reportRead();
-    return super.isDarkMode;
+  Future<void> changeDarkMode(bool value) {
+    return _$changeDarkModeAsyncAction.run(() => super.changeDarkMode(value));
   }
 
+  final _$changeCityCouncilNotificationsAsyncAction =
+      AsyncAction('_SettingsStore.changeCityCouncilNotifications');
+
   @override
-  set isDarkMode(bool value) {
-    _$isDarkModeAtom.reportWrite(value, super.isDarkMode, () {
-      super.isDarkMode = value;
-    });
+  Future<void> changeCityCouncilNotifications(bool? value) {
+    return _$changeCityCouncilNotificationsAsyncAction
+        .run(() => super.changeCityCouncilNotifications(value));
   }
 
-  final _$_SettingsStoreActionController =
-      ActionController(name: '_SettingsStore');
+  final _$changePlenarySessionNotificationsAsyncAction =
+      AsyncAction('_SettingsStore.changePlenarySessionNotifications');
 
   @override
-  void changeCityCouncilNotifications(bool? value) {
-    final _$actionInfo = _$_SettingsStoreActionController.startAction(
-        name: '_SettingsStore.changeCityCouncilNotifications');
-    try {
-      return super.changeCityCouncilNotifications(value);
-    } finally {
-      _$_SettingsStoreActionController.endAction(_$actionInfo);
-    }
-  }
-
-  @override
-  void changePlenarySessionNotifications(bool? value) {
-    final _$actionInfo = _$_SettingsStoreActionController.startAction(
-        name: '_SettingsStore.changePlenarySessionNotifications');
-    try {
-      return super.changePlenarySessionNotifications(value);
-    } finally {
-      _$_SettingsStoreActionController.endAction(_$actionInfo);
-    }
-  }
-
-  @override
-  void changeDarkMode(bool value) {
-    final _$actionInfo = _$_SettingsStoreActionController.startAction(
-        name: '_SettingsStore.changeDarkMode');
-    try {
-      return super.changeDarkMode(value);
-    } finally {
-      _$_SettingsStoreActionController.endAction(_$actionInfo);
-    }
+  Future<void> changePlenarySessionNotifications(bool? value) {
+    return _$changePlenarySessionNotificationsAsyncAction
+        .run(() => super.changePlenarySessionNotifications(value));
   }
 
   @override
   String toString() {
     return '''
+isDarkMode: ${isDarkMode},
 cityCouncilNotifications: ${cityCouncilNotifications},
-plenarySessionNotifications: ${plenarySessionNotifications},
-isDarkMode: ${isDarkMode}
+plenarySessionNotifications: ${plenarySessionNotifications}
     ''';
   }
 }

@@ -19,7 +19,7 @@ class CustomBottomNavigationBarWidget extends StatelessWidget {
         iconSize: 25,
         selectedFontSize: 15,
         unselectedFontSize: 12,
-        backgroundColor: theme.backgroundColor,
+        backgroundColor: theme.bottomNavigationBarTheme.backgroundColor,
         unselectedItemColor: theme.primaryColor,
         selectedItemColor: theme.primaryColor,
         onTap: this.setCurrentPage,

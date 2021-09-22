@@ -19,7 +19,7 @@ class ParliamentaryGridItemWidget extends StatelessWidget {
       child: InkWell(
         onTap: this.onTap,
         child: Card(
-          color: Colors.white,
+          color: theme.cardTheme.color,
           elevation: 5,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,

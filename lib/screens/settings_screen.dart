@@ -53,7 +53,7 @@ class SettingsScreen extends StatelessWidget {
               builder: (_) {
                 return SwitchListTile(
                   title: Text(
-                    "DarkMode",
+                    "Modo Escuro",
                     style: _theme.textTheme.headline6,
                   ),
                   activeColor: _theme.accentColor,

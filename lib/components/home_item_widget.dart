@@ -34,7 +34,7 @@ class _HomeItemWidgetState extends State<HomeItemWidget> {
         width: double.infinity,
         margin: EdgeInsets.symmetric(vertical: 5),
         decoration: BoxDecoration(
-          color: Colors.white,
+          color: theme.cardTheme.color,
           borderRadius: BorderRadius.circular(10),
           boxShadow: [
             BoxShadow(

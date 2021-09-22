@@ -29,7 +29,7 @@ class AppBarWidget extends PreferredSize {
               IconButton(
                 icon: Icon(
                   Icons.help,
-                  color: Colors.blue[900],
+                  color: Colors.blue[400],
                   size: 25,
                 ),
                 splashRadius: 23,
