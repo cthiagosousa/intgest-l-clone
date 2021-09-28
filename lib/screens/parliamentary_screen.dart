@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
 import 'package:intgest_legislativo/models/parliamentary.dart';
-import 'package:intgest_legislativo/stores/country_store.dart';
-import 'package:intgest_legislativo/components/app_bar_widget.dart';
+import 'package:intgest_legislativo/stores/country/country_store.dart';
+
+import 'package:intgest_legislativo/components/custom_app_bar_widget.dart';
 import 'package:intgest_legislativo/components/parliamentary_chart_widget.dart';
 import 'package:intgest_legislativo/components/parliamentary_contact_card_widget.dart';
 import 'package:intgest_legislativo/components/parliamentary_grid_item_widget.dart';
@@ -16,7 +17,7 @@ class ParliamentaryScreen extends StatelessWidget {
         ModalRoute.of(context)!.settings.arguments as Parliamentary;
 
     return Scaffold(
-      appBar: AppBarWidget(
+      appBar: CustomAppBarWidget(
         title: _parliamentary.name,
         subtitle1: "Câmara Municipal de Piquet Carneiro",
         subtitle2: _parliamentary.politicalParty,

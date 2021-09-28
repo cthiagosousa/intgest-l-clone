@@ -1,6 +1,7 @@
 targets:
   $default:
     builders:
-      mobx_codegen|mobx_generator:
+      mobx_codegen|mobx_generator|hive_generator:
         generate_for:
           - "lib/**_store.dart"
+          - "lib/models/**.dart"

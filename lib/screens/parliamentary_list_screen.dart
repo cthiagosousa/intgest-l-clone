@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:get_it/get_it.dart';
-import 'package:intgest_legislativo/components/app_bar_widget.dart';
-import 'package:intgest_legislativo/stores/country_store.dart';
-import 'package:intgest_legislativo/stores/parliamentary_store.dart';
+import 'package:intgest_legislativo/components/custom_app_bar_widget.dart';
+import 'package:intgest_legislativo/stores/country/country_store.dart';
+import 'package:intgest_legislativo/stores/parliamentary/parliamentary_store.dart';
 import 'package:intgest_legislativo/components/parliamentary_item_widget.dart';
 
 class ParliamentaryListScreen extends StatelessWidget {
@@ -13,8 +13,9 @@ class ParliamentaryListScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final ThemeData theme = Theme.of(context);
+
     return Scaffold(
-      appBar: AppBarWidget(
+      appBar: CustomAppBarWidget(
         title: _countryStore.country.name,
         subtitle1: "Câmara Municipal",
         subtitle2: "Parlamentares",
@@ -37,7 +38,8 @@ class ParliamentaryListScreen extends StatelessWidget {
                         _parliamentaryStore.parliamentarys[index];
                     return ParliamentaryItemWidget(
                         parliamentary: parliamentary);
-                  }),
+                  },
+                ),
         ),
       ),
     );

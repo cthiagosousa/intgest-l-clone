@@ -8,13 +8,14 @@ final SettingsRepository _preferences = SettingsRepository();
 
 abstract class _SettingsStore with Store {
   @observable
-  bool isDarkMode = _preferences.isDarkMode;
+  bool isDarkMode = _preferences.isDarkMode as bool;
 
   @observable
-  bool cityCouncilNotifications = _preferences.cityCouncilNotifications;
+  bool cityCouncilNotifications = _preferences.cityCouncilNotifications as bool;
 
   @observable
-  bool plenarySessionNotifications = _preferences.plenarySessionNotifications;
+  bool plenarySessionNotifications =
+      _preferences.plenarySessionNotifications as bool;
 
   @action
   Future<void> changeDarkMode(bool value) async {

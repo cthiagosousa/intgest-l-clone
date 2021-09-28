@@ -1,13 +1,14 @@
 import 'package:hive_flutter/hive_flutter.dart';
-import 'package:intgest_legislativo/models/settings.dart';
 
 class SettingsRepository {
-  Box preferences = Hive.box<Settings>("preferences");
+  Box<bool> preferences = Hive.box<bool>("preferences");
 
-  bool get isDarkMode => preferences.get("darkmode", defaultValue: false);
-  bool get cityCouncilNotifications =>
+  bool? get isDarkMode => preferences.get("darkmode", defaultValue: false);
+
+  bool? get cityCouncilNotifications =>
       preferences.get("cityCouncilNotifications", defaultValue: false);
-  bool get plenarySessionNotifications =>
+
+  bool? get plenarySessionNotifications =>
       preferences.get("plenarySessionNotifications", defaultValue: false);
 
   Future<void> setIsDarkMode(bool value) async {
@@ -15,10 +16,10 @@ class SettingsRepository {
   }
 
   Future<void> setcityCouncilNotifications(bool value) async {
-    await preferences.put("councilnotifications", value);
+    await preferences.put("cityCouncilNotifications", value);
   }
 
   Future<void> setplenarySessionNotifications(bool value) async {
-    await preferences.put("plenarynotifications", value);
+    await preferences.put("plenarySessionNotifications", value);
   }
 }

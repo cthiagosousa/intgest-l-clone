@@ -46,6 +46,7 @@ class AppTheme {
       color: Colors.blue[900],
       size: 25,
     ),
+    splashColor: Colors.blue[900],
   );
   static final ThemeData darkTheme = ThemeData(
     primaryColor: Colors.blue[400],
@@ -91,5 +92,6 @@ class AppTheme {
       color: Colors.blue[400],
       size: 25,
     ),
+    splashColor: Colors.blue[400],
   );
 }

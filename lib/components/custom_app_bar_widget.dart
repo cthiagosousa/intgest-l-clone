@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class AppBarWidget extends PreferredSize {
+class CustomAppBarWidget extends PreferredSize {
   final String title;
   final String subtitle1;
   final String? subtitle2;
   final String imagePath;
   final String backgroundImagePath;
 
-  AppBarWidget({
+  CustomAppBarWidget({
     required this.title,
     required this.subtitle1,
     required this.imagePath,
@@ -29,11 +29,9 @@ class AppBarWidget extends PreferredSize {
               IconButton(
                 icon: Icon(
                   Icons.help,
-                  color: Colors.blue[400],
                   size: 25,
                 ),
                 splashRadius: 23,
-                splashColor: Colors.blue[400],
                 onPressed: () {},
               )
             ],

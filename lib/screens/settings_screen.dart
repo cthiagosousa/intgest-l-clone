@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:get_it/get_it.dart';
-import 'package:intgest_legislativo/components/app_bar_widget.dart';
-import 'package:intgest_legislativo/stores/country_store.dart';
-import 'package:intgest_legislativo/stores/settings_store.dart';
+import 'package:intgest_legislativo/components/custom_app_bar_widget.dart';
+import 'package:intgest_legislativo/stores/country/country_store.dart';
+import 'package:intgest_legislativo/stores/settings/settings_store.dart';
 
 class SettingsScreen extends StatelessWidget {
   final CountryStore _countryStore = GetIt.I.get<CountryStore>();
@@ -14,7 +14,7 @@ class SettingsScreen extends StatelessWidget {
     final ThemeData _theme = Theme.of(context);
 
     return Scaffold(
-      appBar: AppBarWidget(
+      appBar: CustomAppBarWidget(
         title: _countryStore.country.name,
         subtitle1: "Câmara Municipal",
         subtitle2: "Configurações",

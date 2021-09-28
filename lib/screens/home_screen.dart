@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
-import 'package:intgest_legislativo/stores/country_store.dart';
+import 'package:intgest_legislativo/stores/country/country_store.dart';
 import 'package:intgest_legislativo/screens/option_list_tabscreen.dart';
 import 'package:intgest_legislativo/screens/notifications_tabscreen.dart';
 import 'package:intgest_legislativo/screens/news_tabscreen.dart';
-import 'package:intgest_legislativo/components/app_bar_widget.dart';
+import 'package:intgest_legislativo/components/custom_app_bar_widget.dart';
 import 'package:intgest_legislativo/components/custom_drawer_widget.dart';
 import 'package:intgest_legislativo/components/custom_bottom_navigation_bar_widget.dart';
 
@@ -32,7 +32,7 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBarWidget(
+      appBar: CustomAppBarWidget(
         title: _countryStore.country.name,
         subtitle1: "Câmara Municipal",
         subtitle2: _countryStore.country.legislation,

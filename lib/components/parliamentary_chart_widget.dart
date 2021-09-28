@@ -20,12 +20,12 @@ class ParliamentaryChartWidget extends StatelessWidget {
               sections: [
                 PieChartSectionData(
                   value: 80,
-                  color: theme.primaryColor,
+                  color: Colors.blue[900],
                   titleStyle: theme.textTheme.headline3,
                 ),
                 PieChartSectionData(
                   value: 20,
-                  color: theme.accentColor,
+                  color: Colors.blue[400],
                   titleStyle: theme.textTheme.headline3,
                 ),
               ],
@@ -44,7 +44,7 @@ class ParliamentaryChartWidget extends StatelessWidget {
                   Container(
                     width: 15,
                     height: 15,
-                    color: theme.primaryColor,
+                    color: Colors.blue[900],
                   ),
                   SizedBox(width: 5),
                   Text(
@@ -60,7 +60,7 @@ class ParliamentaryChartWidget extends StatelessWidget {
                   Container(
                     width: 15,
                     height: 15,
-                    color: theme.accentColor,
+                    color: Colors.blue[400],
                   ),
                   SizedBox(width: 5),
                   Text(
