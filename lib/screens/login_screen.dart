@@ -35,6 +35,21 @@ class LoginScreen extends StatelessWidget {
     Navigator.popAndPushNamed(context, Routes.HOME);
   }
 
+  Future<void> signInWithGoogle(BuildContext context) async {
+    final account = await _authService.signInWithGoogle();
+    await _accountStore.saveAccount(account);
+
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text("Login feito com sucesso."),
+        backgroundColor: Colors.green,
+        duration: Duration(seconds: 1),
+      ),
+    );
+
+    Navigator.popAndPushNamed(context, Routes.HOME);
+  }
+
   @override
   Widget build(BuildContext context) {
     final ThemeData theme = Theme.of(context);
@@ -100,7 +115,7 @@ class LoginScreen extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   InkWell(
-                    onTap: () {},
+                    onTap: () async => await signInWithGoogle(context),
                     child: Container(
                       width: 50,
                       height: 50,

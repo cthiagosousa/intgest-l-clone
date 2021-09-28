@@ -17,13 +17,13 @@ class AccountAdapter extends TypeAdapter<Account> {
       for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
     };
     return Account(
-      localId: fields[0] as String,
       email: fields[1] as String,
       displayName: fields[2] as String,
       idToken: fields[3] as String,
-      registered: fields[4] as bool,
       refreshToken: fields[5] as String,
-      expiresIn: fields[6] as String,
+      localId: fields[0] as String?,
+      registered: fields[4] as bool?,
+      expiresIn: fields[6] as String?,
     );
   }
 

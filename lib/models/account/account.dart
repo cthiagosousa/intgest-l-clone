@@ -6,7 +6,7 @@ part 'account.g.dart';
 @HiveType(typeId: 1)
 class Account extends HiveObject {
   @HiveField(0)
-  String localId;
+  String? localId;
 
   @HiveField(1)
   String email;
@@ -18,22 +18,22 @@ class Account extends HiveObject {
   String idToken;
 
   @HiveField(4)
-  bool registered;
+  bool? registered;
 
   @HiveField(5)
   String refreshToken;
 
   @HiveField(6)
-  String expiresIn;
+  String? expiresIn;
 
   Account({
-    required this.localId,
     required this.email,
     required this.displayName,
     required this.idToken,
-    required this.registered,
     required this.refreshToken,
-    required this.expiresIn,
+    this.localId,
+    this.registered,
+    this.expiresIn,
   });
 
   Map<String, dynamic> toMap() {
