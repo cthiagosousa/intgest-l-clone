@@ -17,22 +17,24 @@ class LoginScreen extends StatelessWidget {
   final TextEditingController _passwordController = TextEditingController();
 
   Future<void> signIn(BuildContext context) async {
-    final account = await _authService.signIn(
-      _cpfController.text,
-      _passwordController.text,
-    );
+    if (_formKey.currentState!.validate()) {
+      final account = await _authService.signIn(
+        _cpfController.text,
+        _passwordController.text,
+      );
 
-    await _accountStore.saveAccount(account);
+      await _accountStore.saveAccount(account);
 
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(
-        content: Text("Login feito com sucesso."),
-        backgroundColor: Colors.green,
-        duration: Duration(seconds: 1),
-      ),
-    );
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text("Login feito com sucesso."),
+          backgroundColor: Colors.green,
+          duration: Duration(seconds: 1),
+        ),
+      );
 
-    Navigator.popAndPushNamed(context, Routes.HOME);
+      Navigator.popAndPushNamed(context, Routes.HOME);
+    }
   }
 
   Future<void> signInWithGoogle(BuildContext context) async {
@@ -75,6 +77,12 @@ class LoginScreen extends StatelessWidget {
                     prefixIcon: Icons.card_membership,
                     keyboardType: TextInputType.emailAddress,
                     controller: _cpfController,
+                    maxLength: 40,
+                    validator: (value) {
+                      if (value!.trim().isEmpty) {
+                        return "Você precisa informar um email.";
+                      }
+                    },
                   ),
                   InputWidget(
                     hintText: "Senha",
@@ -82,6 +90,12 @@ class LoginScreen extends StatelessWidget {
                     keyboardType: TextInputType.text,
                     obscureText: true,
                     controller: _passwordController,
+                    maxLength: 8,
+                    validator: (value) {
+                      if (value!.trim().isEmpty) {
+                        return "Você precisa informar uma senha.";
+                      }
+                    },
                   ),
                 ],
               ),
@@ -121,7 +135,7 @@ class LoginScreen extends StatelessWidget {
                       height: 50,
                       decoration: BoxDecoration(
                         shape: BoxShape.circle,
-                        color: Colors.white,
+                        color: theme.backgroundColor,
                         image: DecorationImage(
                           image: AssetImage("assets/icons/google.png"),
                           fit: BoxFit.cover,
